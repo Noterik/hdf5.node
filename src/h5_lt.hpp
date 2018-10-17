@@ -145,10 +145,10 @@ namespace NodeHDF5 {
                 stride.get()[arrayIndex] = 1;
           }
         }
-              
+
         return subsetOn;
     }
-    
+
     inline static unsigned int get_fixed_width(Handle<Object> options) {
       if (options.IsEmpty()) {
         return 0;
@@ -167,73 +167,73 @@ namespace NodeHDF5 {
       if (options.IsEmpty()) {
         return;
       }
-      
+
       auto name(String::NewFromUtf8(v8::Isolate::GetCurrent(), "type"));
 
       if (options->HasOwnProperty(v8::Isolate::GetCurrent()->GetCurrentContext(), name).FromJust()) {
         cb(toTypeMap[(H5T)options->Get(name)->Uint32Value()]);
       }
     }
-    
+
     static void get_rank(Handle<Object> options, std::function<void(int)> cb) {
       if (options.IsEmpty()) {
         return;
       }
-      
+
       auto name(String::NewFromUtf8(v8::Isolate::GetCurrent(), "rank"));
       if (options->HasOwnProperty(v8::Isolate::GetCurrent()->GetCurrentContext(), name).FromJust()) {
         cb(options->Get(name)->Uint32Value());
       }
     }
-    
+
     static void get_rows(Handle<Object> options, std::function<void(int)> cb) {
       if (options.IsEmpty()) {
         return;
       }
-      
+
       auto name(String::NewFromUtf8(v8::Isolate::GetCurrent(), "rows"));
 
       if (options->HasOwnProperty(v8::Isolate::GetCurrent()->GetCurrentContext(), name).FromJust()) {
         cb(options->Get(name)->Uint32Value());
       }
     }
-    
+
     static void get_columns(Handle<Object> options, std::function<void(int)> cb) {
       if (options.IsEmpty()) {
         return;
       }
-      
+
       auto name(String::NewFromUtf8(v8::Isolate::GetCurrent(), "columns"));
 
       if (options->HasOwnProperty(v8::Isolate::GetCurrent()->GetCurrentContext(), name).FromJust()) {
         cb(options->Get(name)->Uint32Value());
       }
     }
-    
+
     static void get_sections(Handle<Object> options, std::function<void(int)> cb) {
       if (options.IsEmpty()) {
         return;
       }
-      
+
       auto name(String::NewFromUtf8(v8::Isolate::GetCurrent(), "sections"));
 
       if (options->HasOwnProperty(v8::Isolate::GetCurrent()->GetCurrentContext(), name).FromJust()) {
         cb(options->Get(name)->Uint32Value());
       }
     }
-    
+
     static void get_files(Handle<Object> options, std::function<void(int)> cb) {
       if (options.IsEmpty()) {
         return;
       }
-      
+
       auto name(String::NewFromUtf8(v8::Isolate::GetCurrent(), "files"));
 
       if (options->HasOwnProperty(v8::Isolate::GetCurrent()->GetCurrentContext(), name).FromJust()) {
         cb(options->Get(name)->Uint32Value());
       }
     }
-    
+
     static unsigned int get_compression(Handle<Object> options) {
       if (options.IsEmpty()) {
         return 0;
@@ -263,7 +263,7 @@ namespace NodeHDF5 {
     }
 
     static std::unique_ptr<hsize_t[]> get_chunk_size(Handle<Object> options, int rank) {
-      std::unique_ptr<hsize_t[]> dims(new hsize_t[rank]);  
+      std::unique_ptr<hsize_t[]> dims(new hsize_t[rank]);
       for(int index=0;index<rank;index++){
         dims[index]=0;
       }
@@ -281,7 +281,7 @@ namespace NodeHDF5 {
         for (unsigned int arrayIndex = 0; arrayIndex < std::min((uint32_t)rank, array->Length()); arrayIndex++) {
            dims.get()[arrayIndex]=array->Get(arrayIndex)->Uint32Value();
         }
-          
+
       }
       else {
         for(int index=0;index<rank;index++){
@@ -378,11 +378,11 @@ namespace NodeHDF5 {
       std::unique_ptr<hsize_t[]> dims(new hsize_t[rank]);
       std::unique_ptr<hsize_t[]> maxdims(new hsize_t[rank]);
       switch (rank) {
-        case 1: 
-          dims.get()[0] = {node::Buffer::Length(buffer) / H5Tget_size(type_id)}; 
+        case 1:
+          dims.get()[0] = {node::Buffer::Length(buffer) / H5Tget_size(type_id)};
           maxdims.get()[0] = get_option_int(options,"maxRows",dims.get()[0]);
           break;
-        case 4: 
+        case 4:
           if (buffer->Has(String::NewFromUtf8(v8::Isolate::GetCurrent(), "files"))) {
             dims.get()[0] = (hsize_t)buffer->Get(String::NewFromUtf8(v8::Isolate::GetCurrent(), "files"))->Int32Value();
           }else{
@@ -407,8 +407,8 @@ namespace NodeHDF5 {
           maxdims.get()[1] = get_option_int(options,"maxSections",dims.get()[1]);
           maxdims.get()[3] = get_option_int(options,"maxColumns",dims.get()[3]);
           maxdims.get()[2] = get_option_int(options,"maxRows",dims.get()[2]);
-          break;        
-        case 3: 
+          break;
+        case 3:
           if (buffer->Has(String::NewFromUtf8(v8::Isolate::GetCurrent(), "sections"))) {
             dims.get()[0] = (hsize_t)buffer->Get(String::NewFromUtf8(v8::Isolate::GetCurrent(), "sections"))->Int32Value();
           }else{
@@ -555,7 +555,7 @@ namespace NodeHDF5 {
         }
         H5Pclose(dcpl);
       } else if (rank == 2) {
-          
+
         hsize_t dims[2];
         if (buffer->Has(String::NewFromUtf8(v8::Isolate::GetCurrent(), "rows"))) {
           dims[0]= (hsize_t)buffer->Get(String::NewFromUtf8(v8::Isolate::GetCurrent(), "rows"))->Int32Value();

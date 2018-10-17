@@ -3,7 +3,7 @@
         "hdf5_home_linux%": "/usr/local",
         "hdf5_home_win%": "C:/Program Files/HDF_Group/HDF5/1.10.2",
         "hdf5_home_mac%": "/usr/local",
-        "link_type%": "static",
+        "link_type%": "shared",
         "debug_mode%": "",
         "longlong_type%": "LONGLONG64BITS"
     },
@@ -88,9 +88,8 @@
                         '<(hdf5_home_win)/lib/szip.lib',
                         '<(hdf5_home_win)/lib/zlib.lib',
                         '<(hdf5_home_win)/lib/hdf5.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl.lib',
-                        '<(hdf5_home_win)/lib/hdf5_cpp.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl_cpp.lib'
+                        '<(hdf5_home_win)/lib/hdf5_hl.lib'
+
                     ]
                 }
             }],
@@ -200,10 +199,7 @@
                         '<(hdf5_home_win)/lib/szip.lib',
                         '<(hdf5_home_win)/lib/zlib.lib',
                         '<(hdf5_home_win)/lib/hdf5.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl.lib',
-                        '<(hdf5_home_win)/lib/hdf5_cpp.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl_cpp.lib'
-                    ],
+                        '<(hdf5_home_win)/lib/hdf5_hl.lib'                ],
                 }
             }],
             ['OS=="mac"', {
@@ -303,10 +299,7 @@
                         '<(hdf5_home_win)/lib/szip.lib',
                         '<(hdf5_home_win)/lib/zlib.lib',
                         '<(hdf5_home_win)/lib/hdf5.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl.lib',
-                        '<(hdf5_home_win)/lib/hdf5_cpp.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl_cpp.lib'
-                    ],
+                        '<(hdf5_home_win)/lib/hdf5_hl.lib'                    ],
                 }
             }],
             ['OS=="mac"', {
@@ -408,13 +401,10 @@
                 },
                 'link_settings': {
                     'libraries': [
-                        '<(hdf5_home_win)/lib/szip.lib',
-                        '<(hdf5_home_win)/lib/zlib.lib',
-                        '<(hdf5_home_win)/lib/hdf5.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl.lib',
-                        '<(hdf5_home_win)/lib/hdf5_cpp.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl_cpp.lib'
-                    ],
+                    '<(hdf5_home_win)/lib/szip.lib',
+                    '<(hdf5_home_win)/lib/zlib.lib',
+                    '<(hdf5_home_win)/lib/hdf5.lib',
+                    '<(hdf5_home_win)/lib/hdf5_hl.lib'                    ],
                 }
             }],
             ['OS=="mac"', {
@@ -514,10 +504,7 @@
                         '<(hdf5_home_win)/lib/szip.lib',
                         '<(hdf5_home_win)/lib/zlib.lib',
                         '<(hdf5_home_win)/lib/hdf5.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl.lib',
-                        '<(hdf5_home_win)/lib/hdf5_cpp.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl_cpp.lib'
-                    ],
+                        '<(hdf5_home_win)/lib/hdf5_hl.lib'                ],
                 }
             }],
             ['OS=="mac"', {
@@ -615,10 +602,7 @@
                         '<(hdf5_home_win)/lib/szip.lib',
                         '<(hdf5_home_win)/lib/zlib.lib',
                         '<(hdf5_home_win)/lib/hdf5.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl.lib',
-                        '<(hdf5_home_win)/lib/hdf5_cpp.lib',
-                        '<(hdf5_home_win)/lib/hdf5_hl_cpp.lib'
-                    ],
+                        '<(hdf5_home_win)/lib/hdf5_hl.lib'                  ],
                 }
             }],
             ['OS=="mac"', {
