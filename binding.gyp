@@ -10,7 +10,7 @@
     'targets': [
         {
             'target_name': 'hdf5',
-            'win_delay_load_hook': 'false',
+            'win_delay_load_hook': 'true',
             'conditions': [
             ['OS=="linux"', {
                 'cflags!': [ '-fno-exceptions' ],
@@ -128,7 +128,7 @@
         },
         {
             'target_name': 'h5lt',
-            'win_delay_load_hook': 'false',
+            'win_delay_load_hook': 'true',
             'conditions': [
             ['OS=="linux"', {
                 'cflags!': [ '-fno-exceptions' ],
@@ -232,7 +232,7 @@
         },
         {
             'target_name': 'h5tb',
-            'win_delay_load_hook': 'false',
+            'win_delay_load_hook': 'true',
             'conditions': [
             ['OS=="linux"', {
                 'cflags!': [ '-fno-exceptions' ],
@@ -328,7 +328,7 @@
         },
         {
             'target_name': 'h5pt',
-            'win_delay_load_hook': 'false',
+            'win_delay_load_hook': 'true',
             'conditions': [
             ['OS=="linux"', {
                 'cflags!': [ '-fno-exceptions' ],
@@ -430,7 +430,7 @@
         },
         {
             'target_name': 'h5im',
-            'win_delay_load_hook': 'false',
+            'win_delay_load_hook': 'true',
             'conditions': [
             ['OS=="linux"', {
                 'cflags!': [ '-fno-exceptions' ],
@@ -525,7 +525,7 @@
         },
         {
             'target_name': 'h5ds',
-            'win_delay_load_hook': 'false',
+            'win_delay_load_hook': 'true',
             'conditions': [
             ['OS=="linux"', {
                 'cflags!': [ '-fno-exceptions' ],
