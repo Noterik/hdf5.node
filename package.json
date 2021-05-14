@@ -11,12 +11,14 @@
     "node": ">=6.0.0"
   },
   "devDependencies": {
+    "electron-rebuild": "^1.11.0",
     "mocha": "5.1.1",
     "should": "*",
     "xml2js": "*"
   },
   "scripts": {
-    "install": "node-gyp rebuild --jobs max",
+    "install": "electron-rebuild --version 9.1.1",
+    "rebuild": "electron-rebuild --version 9.1.1",
     "test": "mocha test"
   },
   "contributors": [
